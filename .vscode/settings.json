@@ -3,6 +3,9 @@
         "iosfwd": "cpp",
         "*.tcc": "cpp",
         "iomanip": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "chrono": "cpp",
+        "ranges": "cpp",
+        "variant": "cpp"
     }
 }

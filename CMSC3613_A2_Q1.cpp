@@ -2,23 +2,21 @@
 
 using namespace std;
 
-int smallest(int arr[], int arrsize, int index){
-    if(index >= arrsize){
-        
+int find_smallest(int a[], int size) {
+    if(size == 1){ //If there is only one item available, it is smallest by default
+        return a[0]; //so return it
     }
 
-    int min = arr[index] < min ? arr[index] : min;
-
-    smallest(arr, arrsize, index + 1);
-
-    return min;
+    return min(a[size - 1], find_smallest(a, size - 1)); //Return the minimum number between last item in the array 
+                                                         //and whatever minimum number function returns
 }
 
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[]) {
 
-    int arr[] = {5, 43, 1, 44, 3, 4};
-    
-    smallest(arr, sizeof(arr), 0);
+    int arr[] = {13, 19, 12, 11, 15, 19, 23, 12, 9, 22, 18, 19, 14, 17, 23, 21};
+
+    cout << "smallest: " << find_smallest(arr, ( sizeof(arr)/sizeof(arr[0]) )) << endl; //sizeof array / sizeof array[0] 
+                                                                                        //to determine size of the array automatically
 
     return 0;
 }
