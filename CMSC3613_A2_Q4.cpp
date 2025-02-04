@@ -2,13 +2,26 @@
 
 using namespace std;
 
-bool helper(/*ToDo: finish the parameter list to facilitate your task*/){
-//ToDo: This is a recursive function
+bool helper(int* a, int target, int size, int index0, int index1){
+    if(size < 2){
+        return false;
+    }
+
+    if(a[index0] + a[index1] == target){
+        return true;
+    }
+
+    if(index0 == size) {
+        return helper(a, target, size, index0 + 1, index0 + 2);
+    }   
+
+    return helper(a, target, size, index0, index1 + 1);
+    
 }
 
 void twoSum(int * arr, int target, int size) {
     
-    if ( /*ToDo: Call the helper() function*/ ) {
+    if ( helper(arr, target, size, 0, 1) ) {
         cout<<"Yes"<<endl;
     }
     else
@@ -17,7 +30,7 @@ void twoSum(int * arr, int target, int size) {
 
 int main() {
 
-    int arr1[] = {2,7,11,15};
+    int arr1[] = {2,15,11,7};
     int target1 = 9;
     int size1 = 4;
     

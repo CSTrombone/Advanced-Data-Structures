@@ -10,6 +10,7 @@ void removeDigits(vector<char> & v, vector<char> & result, int index) {
     }
 
     if (!isdigit(v[index])){ //Check if current index is NOT a digit
+        v.erase(v.begin() + index); //Remove the digit from the original vector
         result.push_back(v[index]); //Push non-digit to result vector
     }
     removeDigits(v, result, ++index); //Increment index and repeat function
