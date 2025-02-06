@@ -9,11 +9,11 @@ void Move(int n, char x, char y){
 
 void Hannoi(int n, char a, char b, char c){
     if(n == 0){ //stops the current function at zero because zero is not a disk
-        return;
+        return; //This decides when to move a disk because it stops the current recursion and follows through on the previous instructions
     }
-    Hannoi(n - 1, a, c, b); //call hannoi function again for the disk below original disk, this repeats until is hits lowest (top) disk
-    Move(n, a, c); //moves current disk from x to y, the varying orders of 'a', 'b', and 'c' represents all possible moves
-    Hannoi(n - 1, b, a, c);
+    Hannoi(n - 1, a, c, b); //call Hannoi() for the disk below original disk, this repeats until is hits lowest (top) disk, rearranging 'A', 'B', and 'C'
+    Move(n, a, c); //moves current disk from x to y, the varying orders of 'A', 'B', and 'C' represents all possible moves
+    Hannoi(n - 1, b, a, c); //call Hannoi() again after a successful move to rearrange 'A', 'B', and 'C', going up to lowest disk again
 }
 
 int main(int argc, char* argv[]){
@@ -24,16 +24,3 @@ int main(int argc, char* argv[]){
 
     return 0;
 }
-
-// void Move(int n, char x, char y){ //Move function to make the Hannoi function cleaner
-//     cout << "Move " << n << " from " << x << " to " << y << endl; 
-// }
-
-// void Hannoi(int n, char a, char c, char b){
-//     if(n == 0){ //stops the current function at zero because zero is not a disk
-//         return;
-//     }
-//     Hannoi(n - 1, a, b, c); //call hannoi function again for the disk below original disk, this repeats until is hits lowest (top) disk
-//     Move(n, a, c); //moves current disk from x to y, the varying orders of 'a', 'b', and 'c' represents all possible moves
-//     Hannoi(n - 1, b, c, a);
-// }

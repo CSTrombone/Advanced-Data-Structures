@@ -2,13 +2,13 @@
 
 using namespace std;
 
-int find_smallest(int a[], int size) {
+int find_smallest(int* a, int size) {
     if(size == 1){ //If there is only one item available, it is smallest by default
         return a[0]; //so return it
     }
 
     return min(a[size - 1], find_smallest(a, size - 1)); //Return the minimum number between last item in the array 
-                                                         //and whatever minimum number function returns
+                                                         //and whatever minimum number the function returns
 }
 
 int main(int argc, char* argv[]) {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctype.h>
 #include <vector>
-
+    
 using namespace std;
 
 void removeDigits(vector<char> & v, vector<char> & result, int index) {
@@ -10,11 +10,15 @@ void removeDigits(vector<char> & v, vector<char> & result, int index) {
     }
 
     if (!isdigit(v[index])){ //Check if current index is NOT a digit
-        v.erase(v.begin() + index); //Remove the digit from the original vector
         result.push_back(v[index]); //Push non-digit to result vector
     }
-    removeDigits(v, result, ++index); //Increment index and repeat function
-}
+    else{
+        v.erase(v.begin() + index); //Remove the digit from the original vector
+        return removeDigits(v, result, index); //Repeat function without increasing the index
+    }
+    
+    return removeDigits(v, result, ++index); //Increment index and repeat function
+}   
 
 int main() {
 
@@ -27,4 +31,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
-}
+}   
